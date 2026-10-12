@@ -1,0 +1,802 @@
+<title>IziLab 5e Exercices à faire à la maison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --paper-soft:#F8FAFC;
+    --ink:#25313D;
+    --ink-soft:#5C6C7A;
+    --ink-faint:#93A2AF;
+    --line:#E7EDF2;
+
+    --violet:#7C4DFF;
+    --violet-deep:#5A2FE0;
+    --violet-tint:#EFE7FF;
+
+    --blue:#2F80ED;
+    --blue-deep:#1B5FC4;
+    --blue-tint:#E2EEFD;
+    --blue-tint2:#F1F7FE;
+
+    --orange:#FF8A3D;
+    --orange-deep:#D9600F;
+    --orange-tint:#FFE9D9;
+    --orange-tint2:#FFF5EC;
+
+    --green:#2FAE6B;
+    --green-deep:#1C8452;
+    --green-tint:#DEF6E9;
+    --green-tint2:#F0FBF6;
+
+    --sun:#F5B93E;
+    --sun-deep:#9C6C0C;
+    --sun-tint:#FEF3DA;
+
+    color-scheme:light;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Cairo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    padding-inline:16px;
+    padding-block:24px 60px;
+  }
+  .page{max-width:720px;margin:0 auto;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:6px;
+  }
+
+  .hero-banner{
+    position:relative;
+    width:100%;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 14px 30px -12px rgba(37,49,61,.3);
+    margin-bottom:16px;
+  }
+  .hero-banner img{width:100%;display:block;}
+  .logo-mark{height:clamp(140px, 32vw, 190px);width:auto;max-width:90%;object-fit:contain;display:block;margin-top:12px;}
+
+  .eyebrow-pill{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--violet-tint);color:var(--violet-deep);
+    font-size:15px;font-weight:700;
+    padding:7px 16px;border-radius:999px;
+  }
+  h1{
+    font-family:"Baloo 2",sans-serif;
+    font-size:clamp(24px,6vw,32px);
+    font-weight:800;
+    margin:10px 0 0;
+    text-wrap:balance;
+    color:var(--ink);
+  }
+  h1 .accent{color:var(--orange);}
+
+  .bubble{
+    margin-top:12px;
+    background:var(--paper-soft);
+    border:2px solid var(--line);
+    color:var(--ink-soft);
+    border-radius:16px;
+    padding:12px 18px;
+    font-size:14.5px;
+    line-height:1.6;
+    max-width:520px;
+  }
+  .bubble b{font-weight:800;color:var(--ink);}
+
+  /* ---------- SECTION LABEL ---------- */
+  .section-label{
+    display:flex;align-items:center;gap:8px;
+    margin:30px 4px 14px;
+    font-family:"Baloo 2",sans-serif;
+    font-size:15px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .section-label svg{color:var(--violet);flex-shrink:0;}
+
+  /* ---------- EXERCISE CARD ---------- */
+  .ex-card{
+    background:var(--paper);
+    border-radius:26px;
+    margin-bottom:18px;
+    overflow:hidden;
+    box-shadow:0 10px 24px -12px rgba(37,49,61,.2);
+  }
+  .ex-card[data-tone="blue"]{--tone:var(--blue);--tone-deep:var(--blue-deep);--tone-tint:var(--blue-tint);--tone-tint2:var(--blue-tint2);}
+  .ex-card[data-tone="orange"]{--tone:var(--orange);--tone-deep:var(--orange-deep);--tone-tint:var(--orange-tint);--tone-tint2:var(--orange-tint2);}
+  .ex-card[data-tone="green"]{--tone:var(--green);--tone-deep:var(--green-deep);--tone-tint:var(--green-tint);--tone-tint2:var(--green-tint2);}
+
+  .ex-card summary{
+    list-style:none;
+    cursor:pointer;
+    padding:16px 18px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--tone);
+  }
+  .ex-card summary::-webkit-details-marker{display:none;}
+
+  .ex-avatar{
+    flex-shrink:0;
+    width:48px;height:48px;
+    border-radius:50%;
+    background:#fff;
+    color:var(--tone);
+    font-family:"Baloo 2",sans-serif;
+    font-size:20px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+  }
+
+  .ex-head{flex:1;min-width:0;}
+  .ex-eyebrow{
+    font-size:11.5px;font-weight:700;color:rgba(255,255,255,.85);
+    text-transform:uppercase;letter-spacing:.05em;margin:0 0 2px;
+  }
+  .ex-title{
+    font-family:"Baloo 2",sans-serif;
+    font-size:18px;font-weight:700;margin:0;line-height:1.3;color:#fff;
+  }
+  .ex-subtitle{
+    display:block;margin-top:3px;
+    font-size:12.5px;color:rgba(255,255,255,.85);font-weight:600;
+  }
+  .chevron{
+    flex-shrink:0;width:22px;height:22px;color:#fff;
+    transition:transform .2s ease;
+  }
+  details[open] > summary .chevron{transform:rotate(180deg);}
+
+  .ex-body{padding:20px 20px 22px;}
+  .ex-body > * + *{margin-top:20px;}
+
+  .block-title{
+    display:flex;align-items:center;gap:8px;
+    font-family:"Baloo 2",sans-serif;
+    font-size:16px;font-weight:700;color:var(--tone-deep);
+    margin:0 0 10px;
+  }
+  .block-title svg{flex-shrink:0;}
+  [dir="rtl"] .block-title{flex-direction:row-reverse;justify-content:flex-end;}
+
+  .mission{
+    position:relative;
+    background:var(--tone-tint);
+    border-radius:16px;
+    padding:14px 16px;
+  }
+  .mission-label{
+    display:block;font-family:"Baloo 2",sans-serif;
+    font-size:13px;font-weight:700;color:var(--tone-deep);
+    text-transform:uppercase;letter-spacing:.05em;
+    margin:0 0 8px;
+  }
+  .icon-rows{margin:0;padding:0;list-style:none;display:grid;gap:8px;}
+  .icon-rows li{
+    position:relative;
+    padding-left:24px;
+    font-size:15.5px;line-height:1.55;color:var(--ink);
+    text-align:left;
+  }
+  .icon-rows li svg{position:absolute;left:0;top:3px;color:var(--tone-deep);}
+  [dir="rtl"] .icon-rows li{padding-left:0;padding-right:24px;text-align:right;}
+  [dir="rtl"] .icon-rows li svg{left:auto;right:0;}
+  .steps{margin:0;padding:0;list-style:none;counter-reset:step;display:grid;gap:10px;}
+  .steps li{
+    counter-increment:step;
+    position:relative;
+    padding-left:34px;
+    font-size:15.5px;
+    line-height:1.5;
+    color:var(--ink);
+    text-align:left;
+  }
+  .steps li::before{
+    content:counter(step);
+    position:absolute;left:0;top:0;
+    width:24px;height:24px;border-radius:50%;
+    background:var(--tone);
+    color:#fff;
+    font-family:"Baloo 2",sans-serif;
+    font-size:12px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  [dir="rtl"] .steps li{padding-left:0;padding-right:34px;text-align:right;}
+  [dir="rtl"] .steps li::before{left:auto;right:0;}
+
+  .choice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;}
+  .choice-card{
+    background:var(--paper);
+    border:2px solid var(--tone-tint);
+    border-radius:14px;
+    padding:12px 13px;
+  }
+  .choice-card{position:relative;padding-top:56px;}
+  .c-thumb{
+    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    width:56px;height:56px;border-radius:16px;
+    background:var(--paper);border:2px solid var(--tone-tint);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+    box-shadow:0 4px 8px rgba(0,0,0,.08);
+  }
+  .c-thumb svg{width:60%;height:60%;color:var(--tone-deep);}
+  .choice-card .c-title{
+    font-weight:700;font-size:15px;margin:0 0 5px;color:var(--ink);
+    line-height:1.35;text-align:center;
+  }
+  .choice-card .c-desc{margin:0 0 8px;color:var(--ink-soft);font-size:14.5px;line-height:1.5;text-align:center;}
+  .choice-card .c-pills{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;}
+  .pill{
+    font-size:11.5px;font-weight:700;
+    background:var(--tone-tint);color:var(--tone-deep);
+    padding:3px 9px;border-radius:999px;
+  }
+
+  .qa-list{margin:0;padding:0;list-style:none;display:grid;gap:7px;}
+  .qa-list li{
+    background:var(--tone-tint2);
+    border:1.5px solid var(--tone-tint);
+    border-radius:12px;
+    padding:10px 14px;
+    font-size:15px;
+    line-height:1.55;
+  }
+
+  .chip-grid{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;}
+  .chip-grid li{display:flex;align-items:center;gap:10px;background:var(--tone-tint2);border:1.5px solid var(--tone-tint);border-radius:12px;padding:9px 12px;font-size:15px;line-height:1.4;font-weight:600;}
+  .chip-n{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--tone);color:#fff;font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;}
+  .sub-group{margin-top:16px;}
+  .sub-group:first-child{margin-top:0;}
+  .sub-group-title{
+    font-weight:700;font-size:15.5px;color:var(--tone-deep);
+    margin:0 0 8px;
+  }
+  [dir="rtl"] .sub-group-title{text-align:right;}
+
+  .step-toggle{
+    background:var(--tone-tint2);
+    border:2px solid var(--tone-tint);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .step-toggle + .step-toggle{margin-top:10px;}
+  .step-toggle summary{
+    list-style:none;cursor:pointer;
+    display:flex;align-items:center;gap:10px;
+    padding:12px 14px;
+  }
+  .step-toggle summary::-webkit-details-marker{display:none;}
+  .step-toggle-icon{
+    flex-shrink:0;width:32px;height:32px;border-radius:10px;
+    background:var(--tone-tint);color:var(--tone-deep);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .step-toggle-title{flex:1;font-weight:700;font-size:16.5px;color:var(--ink);}
+  .step-toggle-chevron{flex-shrink:0;width:18px;height:18px;color:var(--tone-deep);transition:transform .2s ease;}
+  .step-toggle[open] .step-toggle-chevron{transform:rotate(180deg);}
+  .step-toggle-body{padding:2px 16px 16px;}
+
+  .tips{margin:0;padding-inline-start:18px;font-size:15.5px;line-height:1.6;color:var(--ink);list-style:disc;}
+  [dir="rtl"] .tips{padding-inline-start:0;padding-inline-end:18px;}
+
+  .inspire-block{text-align:center;}
+  .inspire-frame{
+    position:relative;
+    margin-top:4px;
+    border-radius:18px;
+    overflow:hidden;
+    border:3px solid var(--tone-tint);
+    box-shadow:0 10px 20px -10px rgba(37,49,61,.25);
+    cursor:zoom-in;
+  }
+  .inspire-frame img{width:100%;display:block;}
+  .inspire-zoom{
+    position:absolute;bottom:10px;right:10px;
+    width:36px;height:36px;border-radius:50%;
+    background:rgba(37,49,61,.65);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    pointer-events:none;
+  }
+  .inspire-stack{display:flex;flex-direction:column;gap:12px;margin-top:4px;}
+  .inspire-stack .inspire-frame{margin-top:0;}
+  .inspire-caption{margin:10px 0 0;font-size:13.5px;color:var(--ink-soft);}
+
+  .lightbox{
+    position:fixed;inset:0;z-index:999;
+    background:rgba(20,25,30,.82);
+    display:none;
+    align-items:center;justify-content:center;
+    padding:24px;
+  }
+  .lightbox.is-open{display:flex;}
+  .lightbox img{width:100%;max-width:1200px;max-height:100%;object-fit:contain;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.4);}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  .inspire-frame{-webkit-tap-highlight-color:transparent;}
+  .inspire-frame:focus-visible{outline:3px solid var(--blue);outline-offset:2px;}
+
+  /* ---------- PHONE : un peu plus compact ---------- */
+  @media (max-width:480px){
+    body{padding-inline:12px;}
+    .ex-body{padding:16px 14px 18px;}
+    .ex-card summary{padding:14px;gap:11px;}
+    .ex-avatar{width:42px;height:42px;font-size:18px;}
+    .ex-title{font-size:17px;}
+    .lightbox{padding:10px;}
+    .lightbox-close{top:10px;right:10px;}
+  }
+
+  /* ---------- PC / grand ecran : colonne plus large ---------- */
+  @media (min-width:900px){
+    body{padding-block:36px 80px;}
+    .page{max-width:860px;}
+    .bubble{max-width:620px;font-size:15.5px;}
+    .ex-body{padding:26px 28px 28px;}
+    .icon-rows li,.steps li{font-size:16.5px;}
+    .qa-list li{font-size:16px;}
+    .inspire-stack{max-width:760px;margin-inline:auto;}
+  }
+  .lightbox-close{
+    position:absolute;top:18px;right:18px;
+    width:40px;height:40px;border-radius:50%;
+    background:rgba(255,255,255,.15);color:#fff;
+    border:none;display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+  }
+
+  .send-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:var(--sun-tint);
+    border:2px dashed var(--sun);
+    border-radius:16px;
+    padding:14px 16px;
+  }
+  .send-box svg{flex-shrink:0;color:var(--sun-deep);}
+  .send-box p{margin:0;font-size:15px;line-height:1.55;color:var(--ink);}
+  .send-box p b{color:var(--sun-deep);}
+  [dir="rtl"] .send-box{flex-direction:row-reverse;text-align:right;}
+
+  [dir="rtl"]{text-align:right;}
+
+  footer{
+    margin-top:32px;
+    text-align:center;
+    font-size:12.5px;
+    color:var(--ink-faint);
+    line-height:1.8;
+  }
+  footer b{color:var(--violet-deep);}
+
+  .ex-card.ex-alt-font,
+  .ex-card.ex-alt-font *{
+    font-family:"Baloo Bhaijaan 2","Cairo",sans-serif !important;
+  }
+
+  /* ---------- TAILLES DE POLICE : une echelle fluide, mobile -> PC ---------- */
+  :root{
+    --fs-body:clamp(16px, .3vw + 15px, 19px);
+    --fs-sm:clamp(14px, .25vw + 13px, 16.5px);
+    --fs-xs:clamp(12.5px, .15vw + 12px, 14px);
+  }
+  h1{font-size:clamp(26px, 4vw + 14px, 40px);line-height:1.25;}
+  .bubble,.icon-rows li,.steps li,.qa-list li,.tips,.send-box p{font-size:var(--fs-body);}
+  .choice-card .c-title{font-size:var(--fs-body);}
+  .choice-card .c-desc,.inspire-caption,.ex-subtitle,footer{font-size:var(--fs-sm);}
+  .pill,.ex-eyebrow,.mission-label{font-size:var(--fs-xs);}
+  .block-title,.sub-group-title{font-size:calc(var(--fs-body) * 1.05);}
+  .step-toggle-title{font-size:calc(var(--fs-body) * 1.08);}
+  .ex-title{font-size:clamp(18px, .6vw + 16px, 23px);}
+  .section-label{font-size:var(--fs-body);}
+  .chip-grid li{font-size:var(--fs-body);}
+  /* l'arabe est plus petit a corps egal : on l'agrandit un peu */
+  [dir="rtl"] .icon-rows li,[dir="rtl"] .qa-list li,[dir="rtl"] .tips,[dir="rtl"] .send-box p,[dir="rtl"] .chip-grid li,[dir="rtl"] .inspire-caption{font-size:calc(var(--fs-body) * 1.1);}
+  [dir="rtl"] .block-title,[dir="rtl"] .mission-label{font-size:calc(var(--fs-body) * 1.1);}
+
+  .tagline{margin:2px 0 0;font-size:var(--fs-sm);font-weight:700;color:var(--ink-soft);text-align:center;text-wrap:balance;max-width:34ch;}
+  .tagline-foot{display:inline-block;margin:4px 0 6px;font-size:var(--fs-xs);font-weight:600;max-width:none;}
+</style>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-banner">
+      <img src="banner-izilab.webp" alt="IziLab, une g&eacute;n&eacute;ration d&rsquo;innovateurs pour sauver la plan&egrave;te" />
+    </div>
+    <span class="eyebrow-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      Module IziLab &middot; 5&egrave;me ann&eacute;e
+    </span>
+    <img class="logo-mark" src="logo-outline.png" alt="IziClik" />
+    <p class="tagline">Le partenaire de l&rsquo;&eacute;cole pour l&rsquo;enseignement de l&rsquo;informatique</p>
+    <h1>Mes exercices &agrave; faire &agrave; la <span class="accent">maison</span></h1>
+    <div class="bubble">
+      <span id="bubble-text">Salut ! Voici ton <b>exercice</b>. Cr&eacute;e ton projet sur Canva, et envoie-le &agrave; ton enseignante. Bon travail !</span>
+    </div>
+  </div>
+
+  <p class="section-label">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 21.5 12 17.5 5.5 21.5 7 14.5 2 9.5 9 9"></polygon></svg>
+    <span id="label-text">Ton exercice</span>
+  </p>
+
+  <!-- EXERCICE 1 -->
+  <details class="ex-card" id="ex1" data-tone="blue">
+    <summary>
+      <span class="ex-avatar">1</span>
+      <span class="ex-head">
+        <span class="ex-eyebrow">Fiche n&deg;1</span>
+        <p class="ex-title">Les m&eacute;tiers du futur</p>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </summary>
+    <div class="ex-body">
+      <div class="mission">
+        <span class="mission-label">Ta mission</span>
+        <ul class="icon-rows">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Choisis <b>un seul m&eacute;tier</b> du futur dans la liste ci-dessous.</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Cr&eacute;e avec <b>Canva</b> une <b>pr&eacute;sentation de 3 pages</b> pour expliquer ce m&eacute;tier.</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>&Eacute;cris des textes courts et ajoute des images : ton travail doit &ecirc;tre beau et clair.</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Utilise ce que tu as appris en classe : police, taille et couleur du texte, images, animation et son.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="block-title">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="7" y1="13" x2="13" y2="13"></line><line x1="7" y1="16" x2="11" y2="16"></line></svg>
+          &Eacute;tapes sur Canva
+        </h3>
+
+        <details class="step-toggle">
+          <summary>
+            <span class="step-toggle-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"></circle><path d="M2 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"></path><line x1="19" y1="8" x2="19" y2="14"></line><line x1="16" y1="11" x2="22" y2="11"></line></svg>
+            </span>
+            <span class="step-toggle-title">Si tu n&rsquo;as pas encore de compte Canva</span>
+            <svg class="step-toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="step-toggle-body">
+            <ol class="steps">
+              <li>Ouvre ton navigateur (Chrome ou autre) et va sur <b>canva.com</b>.</li>
+              <li>Clique sur <b>S&rsquo;inscrire</b>, en haut &agrave; droite.</li>
+              <li>Choisis une m&eacute;thode : continuer avec <b>Google</b>, <b>Apple</b>, ou avec une <b>adresse e-mail</b>.</li>
+              <li>Si tu choisis l&rsquo;e-mail : &eacute;cris ton adresse, puis cr&eacute;e un nom d&rsquo;utilisateur et un mot de passe.</li>
+              <li>Ouvre ta bo&icirc;te mail, r&eacute;cup&egrave;re le <b>code de confirmation</b> envoy&eacute; par Canva et saisis-le.</li>
+              <li>Canva te demande &laquo;&nbsp;Quel usage vas-tu faire de Canva&nbsp;?&nbsp;&raquo; &rarr; choisis <b>&Eacute;tudiant</b>.</li>
+            </ol>
+          </div>
+        </details>
+
+        <details class="step-toggle">
+          <summary>
+            <span class="step-toggle-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+            </span>
+            <span class="step-toggle-title">Comment te connecter et cr&eacute;er ton projet</span>
+            <svg class="step-toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="step-toggle-body">
+            <ol class="steps">
+              <li>Va sur <b>canva.com</b> et clique sur <b>Se connecter</b>, en haut &agrave; droite.</li>
+              <li>Connecte-toi avec <b>Google</b>, <b>Apple</b> ou ton <b>e-mail</b>, comme tu l&rsquo;as choisi pour ton compte.</li>
+              <li>Clique sur <b>Cr&eacute;er</b>, puis choisis <b>Pr&eacute;sentation</b>.</li>
+              <li><b>Page 1 (le titre) :</b> &eacute;cris le nom du m&eacute;tier, ton nom et pr&eacute;nom, ton &eacute;cole, ta classe et le texte &laquo;&nbsp;Programme IziClik&nbsp;&raquo;, puis ajoute une image du m&eacute;tier.</li>
+              <li><b>Page 2 (la d&eacute;finition) :</b> explique quel est ce m&eacute;tier et ce que fait la personne qui l&rsquo;exerce.</li>
+              <li><b>Page 3 (l&rsquo;importance) :</b> explique pourquoi ce m&eacute;tier est important pour le futur et comment il aide les gens ou l&rsquo;environnement.</li>
+              <li>Clique sur <b>&Eacute;l&eacute;ments</b> pour ajouter des images et des ic&ocirc;nes. Ajoute aussi une <b>animation</b> et un <b>son</b>, comme en classe.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div>
+        <h3 class="block-title">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle><circle cx="12" cy="12" r=".5" fill="currentColor"></circle></svg>
+          Choisis un m&eacute;tier
+        </h3>
+        <div class="choice-grid">
+          <div class="choice-card">
+            <span class="c-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"></circle><line x1="12" y1="1.5" x2="12" y2="3.3"></line><line x1="12" y1="12.7" x2="12" y2="14"></line><line x1="6.5" y1="8" x2="8" y2="8"></line><line x1="16" y1="8" x2="17.5" y2="8"></line><line x1="7.5" y1="3.5" x2="8.6" y2="4.6"></line><line x1="15.4" y1="11.4" x2="16.5" y2="12.5"></line><line x1="16.5" y1="3.5" x2="15.4" y2="4.6"></line><rect x="5" y="16" width="14" height="6.5" rx="1.2"></rect><line x1="9" y1="16" x2="9" y2="22.5"></line><line x1="14" y1="16" x2="14" y2="22.5"></line><line x1="5" y1="19.2" x2="19" y2="19.2"></line></svg></span>
+            <p class="c-title">Ing&eacute;nieur en &eacute;nergie solaire</p>
+            <p class="c-desc">Il installe des panneaux solaires sur les maisons et les &eacute;coles. Il produit une &eacute;nergie propre et aide &agrave; prot&eacute;ger la plan&egrave;te.</p>
+            <div class="c-pills"><span class="pill">Sciences</span><span class="pill">Environnement</span></div>
+          </div>
+          <div class="choice-card">
+            <span class="c-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"></rect><line x1="6" y1="5.5" x2="18" y2="5.5"></line><line x1="6" y1="17.5" x2="18" y2="17.5"></line><circle cx="12" cy="19.5" r="1"></circle><rect x="9" y="8" width="6" height="6" rx="1.4"></rect></svg></span>
+            <p class="c-title">D&eacute;veloppeur d&rsquo;applications</p>
+            <p class="c-desc">Il cr&eacute;e des applications qui aident les gens &agrave; apprendre, communiquer et s&rsquo;organiser au quotidien.</p>
+            <div class="c-pills"><span class="pill">Programmation</span><span class="pill">Logique</span></div>
+          </div>
+          <div class="choice-card">
+            <span class="c-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"></rect><circle cx="9" cy="14" r="1.4"></circle><circle cx="15" cy="14" r="1.4"></circle><line x1="9" y1="18" x2="15" y2="18"></line><line x1="12" y1="8" x2="12" y2="4"></line><circle cx="12" cy="2.5" r="1.4"></circle><line x1="1.5" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22.5" y2="12"></line></svg></span>
+            <p class="c-title">Ing&eacute;nieur en robotique</p>
+            <p class="c-desc">Il con&ccedil;oit des robots intelligents qui travaillent dans les usines ou les h&ocirc;pitaux, pour des t&acirc;ches difficiles ou dangereuses.</p>
+            <div class="c-pills"><span class="pill">Robotique</span><span class="pill">Ing&eacute;nierie</span></div>
+          </div>
+          <div class="choice-card">
+            <span class="c-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="10" rx="5"></rect><line x1="7" y1="11" x2="7" y2="15"></line><line x1="5" y1="13" x2="9" y2="13"></line><circle cx="16" cy="12" r="1"></circle><circle cx="18.5" cy="14.5" r="1"></circle></svg></span>
+            <p class="c-title">Concepteur de jeux vid&eacute;o</p>
+            <p class="c-desc">Il cr&eacute;e des jeux pour l&rsquo;apprentissage et le divertissement, qui aident les enfants &agrave; apprendre en s&rsquo;amusant.</p>
+            <div class="c-pills"><span class="pill">Cr&eacute;ativit&eacute;</span><span class="pill">Dessin</span></div>
+          </div>
+          <div class="choice-card">
+            <span class="c-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="2.5"></rect><line x1="2.5" y1="8" x2="21.5" y2="8"></line><circle cx="5.3" cy="6" r=".6" fill="currentColor" stroke="none"></circle><circle cx="7.3" cy="6" r=".6" fill="currentColor" stroke="none"></circle><line x1="6" y1="12" x2="18" y2="12"></line><line x1="6" y1="15.5" x2="14" y2="15.5"></line></svg></span>
+            <p class="c-title">Concepteur de sites web</p>
+            <p class="c-desc">Il cr&eacute;e des sites beaux et faciles &agrave; utiliser, avec couleurs, images et liens, pour aider les gens &agrave; trouver l&rsquo;information.</p>
+            <div class="c-pills"><span class="pill">Cr&eacute;ativit&eacute;</span><span class="pill">Num&eacute;rique</span></div>
+          </div>
+          <div class="choice-card">
+            <span class="c-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5 4 9h5.5L7 3.5z"></path><path d="M17 3.5 20 9h-5.5L17 3.5z"></path><path d="M12 21c-4 0-7-2.5-7-6h4l-2.5-3"></path><path d="M12 21c4 0 7-2.5 7-6h-4l2.5-3"></path></svg></span>
+            <p class="c-title">Expert en recyclage</p>
+            <p class="c-desc">Il transforme les d&eacute;chets et vieux objets en nouveaux produits utiles, au lieu de les jeter dans la nature.</p>
+            <div class="c-pills"><span class="pill">&Eacute;cologie</span><span class="pill">Innovation</span></div>
+          </div>
+          <div class="choice-card">
+            <span class="c-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"></line><circle cx="12" cy="9" r="3" fill="currentColor" stroke="none"></circle><line x1="12" y1="12" x2="12" y2="22"></line><rect x="3" y="15" width="6" height="7" rx="1"></rect><rect x="15" y="12" width="6" height="10" rx="1"></rect></svg></span>
+            <p class="c-title">Innovateur villes intelligentes</p>
+            <p class="c-desc">Il imagine des technologies comme des feux ou des transports intelligents, pour rendre les villes plus faciles &agrave; vivre.</p>
+            <div class="c-pills"><span class="pill">Technologie</span><span class="pill">Cr&eacute;ativit&eacute;</span></div>
+          </div>
+          <div class="choice-card">
+            <span class="c-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="12"></line><line x1="10" y1="21" x2="10" y2="7"></line><line x1="16" y1="21" x2="16" y2="14"></line><line x1="2" y1="21" x2="20" y2="21"></line><rect x="17.5" y="2" width="5" height="5" rx="1.4"></rect><line x1="20" y1="0.5" x2="20" y2="2"></line><line x1="20" y1="7" x2="20" y2="8.5"></line><line x1="16" y1="4.5" x2="17.5" y2="4.5"></line><line x1="22" y1="4.5" x2="23.5" y2="4.5"></line></svg></span>
+            <p class="c-title">Analyste sportif par l&rsquo;IA</p>
+            <p class="c-desc">Il utilise l&rsquo;intelligence artificielle pour analyser les performances des joueurs et sugg&eacute;rer des exercices pour progresser.</p>
+            <div class="c-pills"><span class="pill">IA</span><span class="pill">Sport</span></div>
+          </div>
+          <div class="choice-card">
+            <span class="c-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v3a4.5 4.5 0 0 1-4.5 4.5c-1.4 0-2.6-.7-3.4-1.8L12 13l-1.1 1.7c-.8 1.1-2 1.8-3.4 1.8A4.5 4.5 0 0 1 3 12V9z"></path><circle cx="8" cy="10.3" r="1.6"></circle><circle cx="16" cy="10.3" r="1.6"></circle></svg></span>
+            <p class="c-title">R&eacute;alisateur de films VR</p>
+            <p class="c-desc">Il cr&eacute;e des films o&ugrave; le spectateur peut se d&eacute;placer &agrave; l&rsquo;int&eacute;rieur de l&rsquo;histoire, comme s&rsquo;il en faisait partie.</p>
+            <div class="c-pills"><span class="pill">Cr&eacute;ativit&eacute;</span><span class="pill">Technologie</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="send-box">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        <p><b>Derni&egrave;re &eacute;tape :</b> clique <b>Partager</b> &rarr; <b>Partager un design</b>, tape l&rsquo;e-mail de ton enseignante et clique <b>Partager</b>.</p>
+      </div>
+
+      <div class="inspire-block">
+        <h3 class="block-title" style="justify-content:center">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.5c3-4 5-6.5 5-9.5a5 5 0 0 0-10 0c0 3 2 5.5 5 9.5z"></path><line x1="9" y1="21" x2="15" y2="21"></line></svg>
+          Un exemple pour t&rsquo;inspirer
+        </h3>
+        <div class="inspire-stack">
+        <div class="inspire-frame" role="button" tabindex="0" aria-label="Agrandir l&rsquo;image" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="document.getElementById('lightbox-img').src=this.querySelector('img').src;document.getElementById('lightbox').classList.add('is-open')">
+          <img src="exemple-page-1.webp" alt="Page 1 : titre, nom de l&rsquo;&eacute;l&egrave;ve et image du m&eacute;tier d&rsquo;ing&eacute;nieur en &eacute;nergie solaire" />
+          <span class="inspire-zoom" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span>
+        </div>
+        <div class="inspire-frame" role="button" tabindex="0" aria-label="Agrandir l&rsquo;image" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="document.getElementById('lightbox-img').src=this.querySelector('img').src;document.getElementById('lightbox').classList.add('is-open')">
+          <img src="exemple-page-2.webp" alt="Page 2 : d&eacute;finition du m&eacute;tier avec une illustration" />
+          <span class="inspire-zoom" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span>
+        </div>
+        <div class="inspire-frame" role="button" tabindex="0" aria-label="Agrandir l&rsquo;image" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="document.getElementById('lightbox-img').src=this.querySelector('img').src;document.getElementById('lightbox').classList.add('is-open')">
+          <img src="exemple-page-3.webp" alt="Page 3 : pourquoi ce m&eacute;tier est important, avec trois images" />
+          <span class="inspire-zoom" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span>
+        </div>
+        </div>
+        <p class="inspire-caption">Voici un exemple de pr&eacute;sentation de 3 pages sur ce m&eacute;tier &mdash; &agrave; toi de cr&eacute;er la tienne sur Canva ! (touche une image pour l&rsquo;agrandir)</p>
+      </div>
+    </div>
+  </details>
+
+  <!-- EXERCICE 2 -->
+  <details class="ex-card ex-alt-font" id="ex2" data-tone="orange" hidden>
+    <summary>
+      <span class="ex-avatar">2</span>
+      <span class="ex-head">
+        <span class="ex-eyebrow">Fiche n&deg;2</span>
+        <p class="ex-title" dir="rtl" lang="ar">اختراعٌ يُنقذ الكوكب</p>
+        <span class="ex-subtitle">Une invention pour sauver la plan&egrave;te</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </summary>
+    <div class="ex-body" dir="rtl" lang="ar">
+      <div class="mission">
+        <span class="mission-label">مهمتك</span>
+        <ul class="icon-rows">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>اختر <b>اختراعًا واحدًا</b> من القائمة أدناه، يساعد على حماية البيئة.</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>أنشئ باستخدام <b>Canva</b> عرضًا تقديميًا <b>Pr&eacute;sentation</b> لشرح هذا الاختراع.</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>اكتب نصوصًا قصيرة وأضف صورًا وألوانًا، ليكون عملك جميلًا وواضحًا.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="block-title">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle><circle cx="12" cy="12" r=".5" fill="currentColor"></circle></svg>
+          اختر اختراعًا واحدًا
+        </h3>
+        <ul class="chip-grid">
+          <li><span class="chip-n">1</span>سلة ذكية لإعادة التدوير</li>
+          <li><span class="chip-n">2</span>مكنسة سحرية تنظّف وحدها</li>
+          <li><span class="chip-n">3</span>روبوت تنظيف الشواطئ</li>
+          <li><span class="chip-n">4</span>حقيبة مدرسية ذكية</li>
+          <li><span class="chip-n">5</span>محطة ذكية لتوفير الماء</li>
+          <li><span class="chip-n">6</span>سيارة تعمل بالطاقة النظيفة</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="block-title">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7"></path><circle cx="12" cy="17" r=".5" fill="currentColor"></circle></svg>
+          أجب عن هذه الأسئلة
+        </h3>
+        <ul class="qa-list">
+          <li>ما اسم الاختراع؟ ماذا يفعل؟</li>
+          <li>كيف يحمي البيئة؟</li>
+          <li>من يستعمله؟ وأين؟</li>
+          <li>كيف يمكن تحسينه في المستقبل؟</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="block-title">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M12 2a7 7 0 0 0-4 12.75V17h8v-2.25A7 7 0 0 0 12 2z"></path></svg>
+          نصائح Canva
+        </h3>
+        <ul class="tips">
+          <li>اضغط <b>Cr&eacute;er</b> ثم اختر <b>Pr&eacute;sentation</b>.</li>
+          <li>شريحة لكل سؤال، بنصوص قصيرة وصور وألوان جذابة.</li>
+        </ul>
+      </div>
+
+            <div class="inspire-block">
+        <h3 class="block-title" style="justify-content:center">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.5c3-4 5-6.5 5-9.5a5 5 0 0 0-10 0c0 3 2 5.5 5 9.5z"></path><line x1="9" y1="21" x2="15" y2="21"></line></svg>
+          مثال للإلهام
+        </h3>
+        <div class="inspire-stack">
+        <div class="inspire-frame" role="button" tabindex="0" aria-label="تكبير الصورة" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="document.getElementById('lightbox-img').src=this.querySelector('img').src;document.getElementById('lightbox').classList.add('is-open')">
+          <img src="exemple2-page-1.webp" alt="الصفحة 1: العنوان واسم التلميذ" />
+          <span class="inspire-zoom" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span>
+        </div>
+        <div class="inspire-frame" role="button" tabindex="0" aria-label="تكبير الصورة" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="document.getElementById('lightbox-img').src=this.querySelector('img').src;document.getElementById('lightbox').classList.add('is-open')">
+          <img src="exemple2-page-2.webp" alt="الصفحة 2: ما هو الاختراع؟" />
+          <span class="inspire-zoom" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span>
+        </div>
+        <div class="inspire-frame" role="button" tabindex="0" aria-label="تكبير الصورة" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="document.getElementById('lightbox-img').src=this.querySelector('img').src;document.getElementById('lightbox').classList.add('is-open')">
+          <img src="exemple2-page-3.webp" alt="الصفحة 3: كيف يحمي البيئة؟" />
+          <span class="inspire-zoom" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span>
+        </div>
+        </div>
+        <p class="inspire-caption">هذا مثال لعرض من 3 صفحات عن اختراع. المس صورة لتكبيرها، ثم أنشئ عرضك أنت على Canva.</p>
+      </div>
+
+      <div class="send-box">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        <p><b>الخطوة الأخيرة:</b> اضغط <b>Partager</b> &larr; <b>Partager un design</b>، اكتب بريد معلمتك، ثم <b>Partager</b>.</p>
+      </div>
+    </div>
+  </details>
+
+  <!-- EXERCICE 3 -->
+  <details class="ex-card" id="ex3" data-tone="green" hidden>
+    <summary>
+      <span class="ex-avatar">3</span>
+      <span class="ex-head">
+        <span class="ex-eyebrow">Fiche n&deg;3</span>
+        <p class="ex-title" dir="rtl" lang="ar">القارات والمحيطات</p>
+        <span class="ex-subtitle">Les continents et les oc&eacute;ans</span>
+      </span>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </summary>
+    <div class="ex-body" dir="rtl" lang="ar">
+      <div class="mission">
+        <span class="mission-label">مهمتك</span>
+        <ul class="icon-rows">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>اختر <b>قارة أو محيطًا واحدًا</b> تريد تقديمه.</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>أنشئ باستخدام <b>Canva</b> <b>صفحات ويب</b> لتقديمه.</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>اكتب نصوصًا قصيرة وأضف صورًا وألوانًا وخرائط، ليكون عملك جميلًا وواضحًا.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="block-title">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7"></path><circle cx="12" cy="17" r=".5" fill="currentColor"></circle></svg>
+          أجب عن هذه الأسئلة
+        </h3>
+        <ul class="qa-list">
+          <li>ما اسم القارة أو المحيط؟ وأين موقعه على الخريطة؟</li>
+          <li>ما الحيوانات أو النباتات التي تعيش هناك؟</li>
+          <li>ما الشيء المميّز فيه؟ وما أهميته للإنسان؟</li>
+          <li>ماذا تعلّمت عنه؟</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="block-title">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M12 2a7 7 0 0 0-4 12.75V17h8v-2.25A7 7 0 0 0 12 2z"></path></svg>
+          نصائح Canva
+        </h3>
+        <ul class="tips">
+          <li>اضغط <b>Cr&eacute;er</b> ثم اختر <b>Sites Web</b>.</li>
+          <li>أضف خريطة وصورًا، ونصوصًا قصيرة وواضحة.</li>
+        </ul>
+      </div>
+
+            <div class="inspire-block">
+        <h3 class="block-title" style="justify-content:center">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.5c3-4 5-6.5 5-9.5a5 5 0 0 0-10 0c0 3 2 5.5 5 9.5z"></path><line x1="9" y1="21" x2="15" y2="21"></line></svg>
+          مثال للإلهام
+        </h3>
+        <div class="inspire-stack">
+        <div class="inspire-frame" role="button" tabindex="0" aria-label="تكبير الصورة" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="document.getElementById('lightbox-img').src=this.querySelector('img').src;document.getElementById('lightbox').classList.add('is-open')">
+          <img src="exemple3-page-1.webp" alt="الصفحة الرئيسية للموقع" />
+          <span class="inspire-zoom" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span>
+        </div>
+        <div class="inspire-frame" role="button" tabindex="0" aria-label="تكبير الصورة" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="document.getElementById('lightbox-img').src=this.querySelector('img').src;document.getElementById('lightbox').classList.add('is-open')">
+          <img src="exemple3-page-2.webp" alt="صفحة الحيوانات" />
+          <span class="inspire-zoom" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span>
+        </div>
+        <div class="inspire-frame" role="button" tabindex="0" aria-label="تكبير الصورة" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="document.getElementById('lightbox-img').src=this.querySelector('img').src;document.getElementById('lightbox').classList.add('is-open')">
+          <img src="exemple3-page-3.webp" alt="صفحة ماذا تعلّمت؟" />
+          <span class="inspire-zoom" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span>
+        </div>
+        </div>
+        <p class="inspire-caption">هذا مثال لموقع من 3 صفحات مع أزرار للتنقل. المس صورة لتكبيرها، ثم أنشئ صفحاتك أنت على Canva.</p>
+      </div>
+
+      <div class="send-box">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        <p><b>الخطوة الأخيرة:</b> اضغط <b>Partager</b> &larr; <b>Partager un design</b>، اكتب بريد معلمتك، ثم <b>Partager</b>.</p>
+      </div>
+    </div>
+  </details>
+
+  <footer>
+    <b>IziClik</b> &middot; module IziLab &middot; 5&egrave;me ann&eacute;e<br>
+    <span class="tagline tagline-foot">Le partenaire de l&rsquo;&eacute;cole pour l&rsquo;enseignement de l&rsquo;informatique</span><br>
+    Une question ? Demande &agrave; ton enseignante en classe.
+  </footer>
+
+</div>
+
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)this.classList.remove('is-open')">
+  <button class="lightbox-close" aria-label="Fermer" onclick="document.getElementById('lightbox').classList.remove('is-open')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+  </button>
+  <img id="lightbox-img" src="" alt="Exemple agrandi" />
+</div>
+<script>document.addEventListener('keydown',function(e){if(e.key==='Escape'){var l=document.getElementById('lightbox');if(l)l.classList.remove('is-open')}});</script>
+<script>
+/* Un seul exercice affiche a la fois, choisi par le lien : ...#ex1, #ex2 ou #ex3 (sans #, c'est l'exercice 1). */
+(function(){
+  var MSG = {
+    ex1: ["Ton exercice 1", "Salut ! Voici ton <b>exercice 1</b>. Cr&eacute;e ton projet sur Canva, et envoie-le &agrave; ton enseignante. Bon travail !"],
+    ex2: ["Ton exercice 2", "Salut ! Voici ton <b>exercice 2</b>. Cr&eacute;e ton projet sur Canva, et envoie-le &agrave; ton enseignante. Bon travail !"],
+    ex3: ["Ton exercice 3", "Salut ! Voici ton <b>exercice 3</b>. Cr&eacute;e ton projet sur Canva, et envoie-le &agrave; ton enseignante. Bon travail !"]
+  };
+  function show(){
+    var id = (location.hash || '').replace('#','');
+    var all = (id === 'tous');
+    if(!all && !MSG[id]) id = 'ex1';
+    ['ex1','ex2','ex3'].forEach(function(k){
+      var el = document.getElementById(k);
+      if(!el) return;
+      el.hidden = (!all && k !== id);
+      if(all || k === id) el.open = (k === 'ex1' || !all);
+    });
+    if(all){ document.getElementById('label-text').textContent = 'Les 3 exercices (vue enseignante)'; document.getElementById('bubble-text').innerHTML = 'Vue enseignante : les <b>3 exercices</b> sont affich&eacute;s. Les &eacute;l&egrave;ves ne voient que celui de leur lien.'; return; }
+    document.getElementById('label-text').textContent = MSG[id][0];
+    document.getElementById('bubble-text').innerHTML = MSG[id][1];
+  }
+  show();
+  window.addEventListener('hashchange', show);
+})();
+</script>
